@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background-color: #ff0033;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.fighter {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fighter-img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.fighter-name {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.fighter-stats {
+    font-size: 12px;
+    color: #666;
+}
+
+.score {
+    flex: 0.5;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* CSS for strike counts */
+.strike-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add space between left and right values */
+    margin-bottom: 15px; /* Add margin to the bottom of each strike-count */
+}
+
+.left-value {
+    text-align: left; /* Align left values to the left */
+}
+
+.right-value {
+    text-align: right; /* Align right values to the right */
+}
+
+.strike-count > div {
+    font-size: 12px; /* Set font size */
+    color: #666; /* Set color to gray */
+    margin: 0 10px; /* Add margin around each div */
+}
+
+.strike-count:last-child {
+    margin-bottom: 0; /* Remove margin from the last strike-count */
+}
+/* Center the middle value */
+.strike-count > div:nth-child(2) {
+    flex-grow: 1; /* Allow the middle value to grow */
+    text-align: center; /* Center the text */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+/* Adjust alignment for specific items */
+.strike-count > div:nth-child(2):not(:first-child):not(:last-child) {
+    margin: 0 auto; /* Center the text */
+}
+
+/* Adjust positioning of left and right values */
+.strike-count > div:first-child {
+    margin-right: 80px; /* Push the first div to the left */
+}
+
+.strike-count > div:last-child {
+    margin-left: 80px; /* Push the last div to the right */
+}
+
+}

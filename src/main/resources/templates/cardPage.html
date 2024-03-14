@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UFC Scorecard</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div class="container" th:each="competition : ${cardResponse.cards.main.competitions}">
+    <div class="header">UFC Fight Scorecard</div>
+    <div class="match">
+        <!-- Iterate over each competitor -->
+        <div th:each="competitor : ${competition.competitors[0]}" class="fighter">
+            <!-- Display the fighter -->
+            <img th:src="${competitor.athlete.images[0].href}" th:alt="${competitor.athlete.displayName}" class="fighter-img"/>
+            <div class="fighter-name"><span th:text="${competitor.athlete.displayName}"></span></div>
+            <div class="fighter-stats">
+                <span th:text="${competitor.athlete.displayHeight}"></span> |
+                <span th:text="${competitor.athlete.displayWeight}"></span>
+            </div>
+            <div class="fighter-stats"><span th:text="${competitor.displayRecord}"></span></div>
+        </div>
+        <!-- Score in the middle -->
+        <div class="score">
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[0].displayValue}"></span></div>
+                <div>KD</div>
+                <div><span th:text="${competition.competitors[1].stats[0].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[1].displayValue}"></span></div>
+                <div>TOT STRIKES</div>
+                <div><span th:text="${competition.competitors[1].stats[1].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[2].displayValue}"></span></div>
+                <div>SIG STRIKES</div>
+                <div class="right-value"><span th:text="${competition.competitors[1].stats[2].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[3].displayValue}"></span></div>
+                <div>HEAD</div>
+                <div><span th:text="${competition.competitors[1].stats[3].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[4].displayValue}"></span></div>
+                <div>BODY</div>
+                <div><span th:text="${competition.competitors[1].stats[4].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[5].displayValue}"></span></div>
+                <div>LEGS</div>
+                <div><span th:text="${competition.competitors[1].stats[5].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[6].displayValue}"></span></div>
+                <div>CONTROL</div>
+                <div><span th:text="${competition.competitors[1].stats[6].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[7].displayValue}"></span></div>
+                <div>TAKE DOWNS</div>
+                <div><span th:text="${competition.competitors[1].stats[7].displayValue}"></span></div>
+            </div>
+            <div class="strike-count">
+                <div><span th:text="${competition.competitors[0].stats[8].displayValue}"></span></div>
+                <div>SUB ATT</div>
+                <div><span th:text="${competition.competitors[1].stats[8].displayValue}"></span></div>
+            </div>
+        </div>
+
+        <!-- Second fighter -->
+        <div th:each="competitor : ${competition.competitors[1]}" class="fighter">
+            <img th:src="${competitor.athlete.images[1].href}" th:alt="${competitor.athlete.displayName}" class="fighter-img"/>
+            <div class="fighter-name"><span th:text="${competitor.athlete.displayName}"></span></div>
+            <div class="fighter-stats">
+                <span th:text="${competitor.athlete.displayHeight}"></span> |
+                <span th:text="${competitor.athlete.displayWeight}"></span>
+            </div>
+            <div class="fighter-stats"><span th:text="${competitor.displayRecord}"></span></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
