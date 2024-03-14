@@ -73,6 +73,8 @@ data class Competition(
     val cardSegment: CardSegment,
     val matchNumber: Int,
     val note: String,
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val judgesScores: String?,
     val competitors: List<Competitor>
 )
 

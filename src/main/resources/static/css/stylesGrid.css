@@ -75,6 +75,16 @@ body {
     margin-bottom: 15px;
 }
 
+.strike-count-custom {
+    font-size: 8px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+
 .strike-count > div {
     font-size: 12px;
     color: #666;

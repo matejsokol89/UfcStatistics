@@ -12,6 +12,15 @@
         .loser {
     color: red;
 }
+        .strike-count-custom {
+    font-size: 14px;
+    color: #333;
+}
+        .strike-count-custom-small {
+    font-size: 14px;
+    color: #999;
+}
+
     </style>
 </head>
 <body>
@@ -20,9 +29,11 @@
     <div class="match">
         <!-- First fighter -->
         <div th:each="competitor : ${competition.competitors[0]}" class="fighter">
-            <img th:src="${competitor.athlete.images[0].href}" th:alt="${competitor.athlete.displayName}" class="fighter-img"/>
+            <img th:src="${competitor.athlete.images[0].href}" th:alt="${competitor.athlete.displayName}"
+                 class="fighter-img"/>
             <div class="fighter-info">
-                <div th:class="${competitor.winner} ? 'fighter-name winner' : 'fighter-name loser'"><span th:text="${competitor.athlete.displayName}"></span></div>
+                <div th:class="${competitor.winner} ? 'fighter-name winner' : 'fighter-name loser'"><span
+                        th:text="${competitor.athlete.displayName}"></span></div>
                 <div class="fighter-stats">
                     <span th:text="${competitor.athlete.displayHeight}"></span> |
                     <span th:text="${competitor.athlete.displayWeight}"></span>
@@ -32,6 +43,22 @@
         </div>
         <!-- Score in the middle -->
         <div class="score">
+            <div class="strike-count-custom">
+                <div></div>
+                <div>Final</div>
+                <div></div>
+            </div>
+            <div class="strike-count-custom">
+                <div></div>
+                <div><span th:text="${competition.status.result.shortDisplayName}"></span></div>
+                <div></div>
+            </div>
+            <div class="strike-count-custom-small">
+                <div></div>
+                <div><span th:text="${competition.status.displayClock}"></span></div>
+                <div></div>
+            </div>
+            <br>
             <div class="strike-count">
                 <div><span th:text="${competition.competitors[0].stats[0].displayValue}"></span></div>
                 <div>KD</div>
@@ -45,7 +72,8 @@
             <div class="strike-count">
                 <div><span th:text="${competition.competitors[0].stats[2].displayValue}"></span></div>
                 <div>SIG STRIKES</div>
-                <div class="right-value"><span th:text="${competition.competitors[1].stats[2].displayValue}"></span></div>
+                <div class="right-value"><span th:text="${competition.competitors[1].stats[2].displayValue}"></span>
+                </div>
             </div>
             <div class="strike-count">
                 <div><span th:text="${competition.competitors[0].stats[3].displayValue}"></span></div>
@@ -59,7 +87,7 @@
             </div>
             <div class="strike-count">
                 <div><span th:text="${competition.competitors[0].stats[5].displayValue}"></span></div>
-                <div>LEG STRIKES </div>
+                <div>LEG STRIKES</div>
                 <div><span th:text="${competition.competitors[1].stats[5].displayValue}"></span></div>
             </div>
             <div class="strike-count">
@@ -81,9 +109,11 @@
         </div>
         <!-- Second fighter -->
         <div th:each="competitor : ${competition.competitors[1]}" class="fighter">
-            <img th:src="${competitor.athlete.images[1].href}" th:alt="${competitor.athlete.displayName}" class="fighter-img"/>
+            <img th:src="${competitor.athlete.images[1].href}" th:alt="${competitor.athlete.displayName}"
+                 class="fighter-img"/>
             <div class="fighter-info">
-                <div th:class="${competitor.winner} ? 'fighter-name winner' : 'fighter-name loser'"><span th:text="${competitor.athlete.displayName}"></span></div>
+                <div th:class="${competitor.winner} ? 'fighter-name winner' : 'fighter-name loser'"><span
+                        th:text="${competitor.athlete.displayName}"></span></div>
                 <div class="fighter-stats">
                     <span th:text="${competitor.athlete.displayHeight}"></span> |
                     <span th:text="${competitor.athlete.displayWeight}"></span>
