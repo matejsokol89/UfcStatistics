@@ -41,4 +41,12 @@ class UfcFighterStatsController(val ufcFighterStatsService: UfcFighterStatsServi
         println(model)
         return "cardPageGrid"
     }
+
+    @GetMapping("/cardResponseGridSime")
+    fun showCardPageGridSime(model: Model): String {
+        val cardResponse = ufcFighterStatsService.getCard()
+        model.addAttribute("cardResponse", cardResponse)
+        println(model)
+        return "cardPageGridSime"
+    }
 }

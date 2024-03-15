@@ -66,8 +66,10 @@ data class Competition(
     val id: String,
     val uid: String,
     val date: String,
-    val type: Type,
-    //val types: List<Type>,
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val type: Type?,
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val types: List<Type>?,
     val recent: Boolean,
     val status: Status,
     val cardSegment: CardSegment,
@@ -79,16 +81,23 @@ data class Competition(
 )
 
 data class Type(
-    val id: String,
-    val text: String,
-    val abbreviation: String
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val id: String?,
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val text: String?,
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val abbreviation: String?,
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val description: String?
+
 )
 
 data class Status(
     val clock: String,
     val displayClock: String,
-    val period: Int,
-    //val type: Type,
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    val period: Int?,
+    val type: Type,
     val result: Result,
     val featured: Boolean
 )
